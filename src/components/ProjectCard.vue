@@ -5,6 +5,8 @@ export default {
     cardTitle: String,
     cardClient: String,
     cardDescription: String,
+    cardTechnologies: Object,
+    cardType: Object
   },
 };
 </script>
@@ -21,6 +23,19 @@ export default {
       <p>
         {{ cardDescription }}
       </p>
+      <ul v-if="cardTechnologies.length > 0">
+        <li v-for="(technlogy, key) in cardTechnologies" :key="key">
+            {{ technlogy.name }}
+        </li>
+      </ul>
+      <div v-if="cardType">
+        <h5>
+            Tipo
+        </h5>
+        <p>
+            {{ cardType.name  }}
+        </p>
+    </div>
     </div>
   </div>
 </template>

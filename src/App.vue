@@ -33,7 +33,9 @@ export default {
         :key="project.id" 
         :cardTitle="project.name"
         :cardClient="project.client_name"
-        :cardDescription="project.summary" />
+        :cardDescription="project.summary"
+        :cardTechnologies="project.technologies"
+        :cardType="project.type" />
     </div>
 </template>
 

@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import Projects from '../views/Projects.vue';
 import About from '../views/About.vue';
 import DetailsProject from '../views/DetailsProject.vue';
+import Error404 from '../views/Error404.vue';
 const routes = [
     {
         path: '/',
@@ -24,6 +25,10 @@ const routes = [
         path: '/projects/details/:slug',
         name: 'details_project',
         component: DetailsProject
+    },
+    {
+        path: '/:pathMatch(.*)*',
+        component: Error404
     }
 ]
 

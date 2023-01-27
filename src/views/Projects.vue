@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios';
+import { BASE_URL } from '../data/data';
 import ProjectCard from '../components/ProjectCard.vue';
 export default {
     name: 'Projects',
@@ -8,7 +9,6 @@ export default {
     },
     data() {
     return {
-      baseUrl: "http://127.0.0.1:8000/api/",
       projects: [],
       pagination: {
         current: 1,
@@ -20,7 +20,7 @@ export default {
     getApi(page) {
       this.pagination.current = page;
       axios
-        .get(this.baseUrl + "projects", {
+        .get(BASE_URL + "projects", {
           params: {
             page: this.pagination.current,
           },
@@ -28,7 +28,6 @@ export default {
         .then((risultato) => {
           this.projects = risultato.data.projects.data;
           this.pagination.lastPage = risultato.data.projects.last_page
-          console.log(this.pagination.lastPage);
         });
     },
   },
@@ -47,7 +46,8 @@ export default {
         :cardClient="project.client_name"
         :cardDescription="project.summary"
         :cardTechnologies="project.technologies"
-        :cardType="project.type" />
+        :cardType="project.type"
+        :cardSlug="project.slug" />
         <div>
             <button
             :disabled="pagination.current == pagination.lastPage"

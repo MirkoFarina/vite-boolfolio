@@ -6,7 +6,8 @@ export default {
     cardClient: String,
     cardDescription: String,
     cardTechnologies: Object,
-    cardType: Object
+    cardType: Object,
+    cardSlug: String
   },
 };
 </script>
@@ -36,8 +37,10 @@ export default {
             {{ cardType.name  }}
         </p>
     </div>
+    {{ cardSlug }}
     </div>
   </div>
+  <router-link :to="{name: 'details_project', params: {slug:cardSlug} }"> DETTAGLIO PROGETTO </router-link>
 </template>
 
 

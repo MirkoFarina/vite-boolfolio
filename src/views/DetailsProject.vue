@@ -28,6 +28,7 @@ export default {
 <template>
     <div class="project-details">
     <div class="top">
+        <img :src="project.cover_image" :alt="project.image_original_name">
       <h1>
         {{ project.name }}
       </h1>
@@ -56,4 +57,10 @@ export default {
 
 
 <style lang="scss" scoped>
+
+.top {
+    img {
+        max-width: 300px;
+    }
+}
 </style>
